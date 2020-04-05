@@ -9,8 +9,8 @@
 <!--    <p v-show="show">Do you see me!</p>-->
 <!--    <button @click="show =!show">Switch</button>-->
   <ul>
-    <li v-for="ingredient in ingredients" :key="ingredient">
-      {{ingredient}}
+    <li v-for="(ingredient, i) in ingredients" :key="ingredient">
+      {{ingredient}} ({{i}})
     </li>
   </ul>
   </div>
