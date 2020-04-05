@@ -19,6 +19,8 @@
         <span v-for="value in person" :key="value"> {{value}} </span>
       </li>
     </ul>
+    <hr>
+    <span v-for="n in 10" :key="n">{{n}}</span>
     <!--    <template v-for="(ingredient, index) in ingredients">-->
     <!--      <h1>{{ingredient}}</h1>-->
     <!--      <p>{{index}}</p>-->
