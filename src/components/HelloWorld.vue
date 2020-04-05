@@ -1,7 +1,11 @@
 <template>
   <div>
     <p v-if="show">You can see me!</p>
-    <p>Do you also see me</p>
+    <p v-else>Do you also see me</p>
+    <template v-if="show">
+      <h2>Heading</h2>
+      <p>Inside a template</p>
+    </template>
     <button @click="show =!show">Switch</button>
   </div>
 </template>
