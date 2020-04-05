@@ -68,7 +68,7 @@ export default {
       monsterHealth: 100,
       gameIsRunning: false,
       turns: []
-    };
+    }
   },
   methods: {
     startGame: function() {
@@ -137,7 +137,7 @@ export default {
       });
     },
     calculateDamage: function(min, max) {
-      return Math.max(Math.floor(Math.random * max) + 1, min);
+      return Math.max(Math.floor(Math.random() * max) + 1, min);
     },
     checkWin: function() {
       if (this.monsterHealth <= 0) {
