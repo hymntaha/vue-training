@@ -7,7 +7,7 @@
           <div
             class="healthbar text-center"
             style="background-color: green; margin: 0; color: white;"
-            :style="{width: playerHealth + '%'}"
+            :style="{ width: playerHealth + '%' }"
           >
             {{ playerHealth }}
           </div>
@@ -19,7 +19,7 @@
           <div
             class="healthbar text-center"
             style="background-color: green; margin: 0; color: white;"
-            :style="{width: monsterHealth + '%'}"
+            :style="{ width: monsterHealth + '%' }"
           >
             {{ monsterHealth }}
           </div>
@@ -33,10 +33,12 @@
     </section>
     <section class="row controls" v-else>
       <div class="small-12 columns">
-        <button id="attack">ATTACK</button>
-        <button id="special-attack">SPECIAL ATTACK</button>
-        <button id="heal">HEAL</button>
-        <button id="give-up">GIVE UP</button>
+        <button id="attack" @click="attack">ATTACK</button>
+        <button id="special-attack" @click="specialAttack">
+          SPECIAL ATTACK
+        </button>
+        <button id="heal" @click="heal">HEAL</button>
+        <button id="give-up" @click="giveUp">GIVE UP</button>
       </div>
     </section>
     <section class="row log">
@@ -58,12 +60,26 @@ export default {
       gameIsRunning: false
     };
   },
-  methods:{
-    startGame: function () {
+  methods: {
+    startGame: function() {
       this.gameIsRunning = true;
       this.playerHealth = 100;
       this.monsterHealth = 100;
-    }
+    },
+    attack: function() {
+      var max = 10;
+      var min = 3;
+      var damage = Math.max(Math.floor(Math.random * max) + 1, min);
+      this.monsterHealth -= damage;
+
+      max = 12;
+      min = 5;
+      var damage = Math.max(Math.floor(Math.random * max) + 1, min);
+      this.playerHealth -=damage;
+    },
+    specialAttack: function() {},
+    heal: function() {},
+    giveUp: function() {}
   }
 };
 </script>
