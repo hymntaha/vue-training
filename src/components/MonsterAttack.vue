@@ -44,7 +44,16 @@
     <section class="row log" v-if="turns.length > 0">
       <div class="small-12 columns">
         <ul>
-          <li v-for="(turn,index) in turns" :key="index">{{turn.text}}</li>
+          <li
+            v-for="(turn, index) in turns"
+            :key="index"
+            :class="{
+              'player-turn': turn.isPlayer,
+              'monster-turn': !turn.isPlayer
+            }"
+          >
+            {{ turn.text }}
+          </li>
         </ul>
       </div>
     </section>
@@ -58,7 +67,7 @@ export default {
       playerHealth: 100,
       monsterHealth: 100,
       gameIsRunning: false,
-      turns:[]
+      turns: []
     };
   },
   methods: {
@@ -72,8 +81,8 @@ export default {
       var damage = this.calculateDamage(3, 10);
       this.monsterHealth -= damage;
       this.turns.unshift({
-        isPlayer:true,
-        text: 'Player hits Monster for ' + damage
+        isPlayer: true,
+        text: "Player hits Monster for " + damage
       });
 
       if (this.checkWin()) {
@@ -83,13 +92,13 @@ export default {
       this.monsterAttacks();
     },
     specialAttack: function() {
-      var damage = this.calculateDamage(10, 20)
+      var damage = this.calculateDamage(10, 20);
       this.monsterHealth -= damage;
 
       this.turns.unshift({
         isPlayer: true,
-        text:"Player hits Monster hard for" + damage
-      })
+        text: "Player hits Monster hard for" + damage
+      });
       if (this.checkWin()) {
         return;
       }
@@ -110,22 +119,22 @@ export default {
 
       this.turns.unshift({
         isPlayer: true,
-        text:"Player heals for 10"
-      })
+        text: "Player heals for 10"
+      });
       this.monsterAttacks();
     },
     giveUp: function() {
       this.gameIsRunning = false;
     },
     monsterAttacks: function() {
-      var damage =  this.calculateDamage(5, 12)
+      var damage = this.calculateDamage(5, 12);
       this.playerHealth -= damage;
 
       this.checkWin();
       this.turns.unshift({
-        isPlayer:false,
-        text: 'Monster hits Player for ' + damage
-    });
+        isPlayer: false,
+        text: "Monster hits Player for " + damage
+      });
     },
     calculateDamage: function(min, max) {
       return Math.max(Math.floor(Math.random * max) + 1, min);
