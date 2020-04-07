@@ -10,5 +10,7 @@
   }
 </script>
 <style>
+    .panel-body{
 
+    }
 </style>
