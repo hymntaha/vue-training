@@ -1,6 +1,6 @@
 <template>
     <div>
-        <QuoteGrid :quotes></QuoteGrid>
+        <QuoteGrid :quotes="quotes"></QuoteGrid>
     </div>
 </template>
 <script>
