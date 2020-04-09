@@ -2,6 +2,11 @@
     <div>
         <NewQuote @quoteAdded="newQuote"/>
         <QuoteGrid :quotes="quotes"></QuoteGrid>
+        <div class="row">
+            <div class="col-sm-12 text-center">
+                <div class="alert alert-info">Info: Click on a quote to delete it!</div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
