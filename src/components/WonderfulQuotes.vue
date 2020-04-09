@@ -1,14 +1,17 @@
 <template>
     <div>
+        <NewQuote/>
         <QuoteGrid :quotes="quotes"></QuoteGrid>
     </div>
 </template>
 <script>
     import QuoteGrid from "./QuoteGrid";
+    import NewQuote from "./NewQuote";
   export default{
     name: "WonderfulQuotes",
     components:{
-      QuoteGrid
+      QuoteGrid,
+      NewQuote
     },
     data: function(){
       return{
