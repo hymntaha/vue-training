@@ -12,11 +12,13 @@
 <script>
     import QuoteGrid from "./QuoteGrid";
     import NewQuote from "./NewQuote";
+    import Header from './Header';
   export default{
     name: "WonderfulQuotes",
     components:{
       QuoteGrid,
-      NewQuote
+      NewQuote,
+      Header
     },
     data: function(){
       return{
