@@ -1,6 +1,6 @@
 <template>
     <div>
-        <NewQuote/>
+        <NewQuote @quoteAdded="newQuote"/>
         <QuoteGrid :quotes="quotes"></QuoteGrid>
     </div>
 </template>
@@ -19,6 +19,11 @@
           'Just a Quote to see something'
         ],
         maxQuotes: 10
+      }
+    },
+    methods:{
+      newQuote(quote){
+        return this.quote.push(quote)
       }
     }
   }
